@@ -24,7 +24,7 @@ float Table<T>::ArithmeticalMeanRow(int row)
 {
     float sum = 0;
     int i = 0;
-    for(i; i <= tr[row].size(); i++)
+    for(i; i < tr[row].size(); i++)
     {
         sum+=tr[row][i];
     }
@@ -38,14 +38,15 @@ float Table<T>::ArithmeticalMeanCol(int col)
 {
     float sum = 0;
     int i = 0;
-    for(i; i <= tr[col].size(); i++)
+    for(i; i < tr[col].size()-1; i++)
     {
         sum+=tr[i][col];
-    }
 
+    }
     sum/= i;
     return sum;
 }
+
 
 template<typename T>
 void Table<T>::RemoveColumns(int n, int from)
@@ -168,7 +169,7 @@ template<typename T>
 T Table<T>::SumRow(int row)
 {
     int sum = 0;
-    for(int i=0; i <= tr[row].size(); i++)
+    for(int i=0; i < tr[row].size(); i++)
     {
         sum+=tr[row][i];
     }
@@ -181,7 +182,7 @@ T Table<T>::SumCol(int col)
 {
     int sum = 0;
     int i = 0;
-    for(i; i <= tr[col].size(); i++)
+    for(i; i < tr[col].size() - 1; i++)
     {
         sum+=tr[i][col];
     }
