@@ -21,5 +21,6 @@ int main()
     cout<<endl<<bruh.ArithmeticalMeanRow(2);
     cout<<endl<<bruh.ArithmeticalMeanCol(4);
     cout<<endl<<bruh.SumCol(4);
+    cout<<endl<<bruh.SumRow(4);
     return 0;
 }
