@@ -140,18 +140,27 @@ vector<vector<T>> Table<T>::Find(T value)
 template<typename T>
 void Table<T>::Info()
 {
+    cout << endl << "           Table info." << endl;
+    for(int siz = 0; siz<tr[0].size()+1;siz++)
+    {
+        cout<<"******";
+    }
 
-    cout << endl << "------------------------------Table info--------------------------" << endl;
-
-    cout << "    ";
+    cout << endl;
     for(int j1 = 0; j1 < tr[0].size(); j1++)
     {
         string bruh = to_string(j1) + ".";
-        cout << setw(6) << bruh ;
+        cout << setw(6) << bruh;
     }
-    cout<<endl ;
+    cout<<endl;
+
     for(int i = 0; i< tr.size(); i++)
     {
+        for(int siz = 0; siz<tr[0].size()+1; siz++)
+        {
+            cout<<"------";
+        }
+        cout << endl;    
         cout << i << ".";
         if(i<=9)
             cout << " "<< "|";
@@ -161,7 +170,17 @@ void Table<T>::Info()
         }
         cout  << endl;
     }
-    cout << "------------------------------------------------------------------" << endl;
+    
+     for(int siz = 0; siz<tr[0].size()+1; siz++)
+        {
+            cout<<"------";
+        }
+        cout<<endl;
+    for(int siz = 0; siz<tr[0].size()+1;siz++)
+        {
+            cout<<"******";
+        }
+        cout<<endl;
 }
 
 
