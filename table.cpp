@@ -369,13 +369,20 @@ void Table<T>::ReadFromFile(string file, string format, char delimeter)
         char delim = delimeter;
         while(getline (myfile,line))
         {
-            tr.push_back(vector<int>());
+            tr.push_back(vector<T>());
             const string s =  line;
             stringstream ss(s);
             string item;
             while(getline(ss, item, delim))
             {
+                if(std::strcmp( typeid(T).name() ,"i") == 0)
                 tr[j].push_back(stoi(item));
+
+                if(std::strcmp( typeid(T).name() ,"f") == 0)
+                    tr[j].push_back(stof(item));
+
+                if(std::strcmp( typeid(T).name() ,"d") == 0)
+                    tr[j].push_back(stod(item));
             }
 
             j++;
