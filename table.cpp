@@ -281,7 +281,6 @@ void Table<T>::InsertInto(int m,int n, T value)
 }
 
 
-template<typename T>
 void Table<T>::FillArea(int a,int b, int m, int n, T value)
 {
     // a, b = Begin coordinates
@@ -292,7 +291,7 @@ void Table<T>::FillArea(int a,int b, int m, int n, T value)
         cout <<" Out of bounds";
         return;
     }
-    for(int i = a; i <= a+m; i++)
+    for(int i = a; i < a+m; i++)
     {
         for(int j = b; j < b+n; j++)
         {
