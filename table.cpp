@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <iostream>
 #include <vector>
+#include <cstring>
 #include "table.h"
 using namespace std;
 
@@ -12,7 +13,7 @@ Table<T>::Table(int n , int m)
     for(int i = 0; i < n; i++)
     {
         tr[i].resize(m);
-        for(int j = 0; j<m; j++)
+        for(int j = 0; j < m; j++)
         {
             tr[i][j] = (T)0;
         }
@@ -23,30 +24,33 @@ template<typename T>
 float Table<T>::ArithmeticalMeanRow(int row)
 {
     float sum = 0;
+    float cnt = 0;
     int i = 0;
     for(i; i < tr[row].size(); i++)
     {
         sum+=tr[row][i];
+        cnt++;
     }
+    float res = sum / cnt;
 
-    sum/= i;
-    return sum;
+    return res;
 }
 
 template<typename T>
 float Table<T>::ArithmeticalMeanCol(int col)
 {
     float sum = 0;
-    int i = 0;
-    for(i; i < tr[col].size()-1; i++)
+    float cnt = 0;
+    
+    for(int i = 0; i < tr[col].size()-1; i++)
     {
         sum+=tr[i][col];
-
+        cnt++;
     }
-    sum/= i;
-    return sum;
-}
 
+    float res = sum / cnt;
+    return res;
+}
 
 template<typename T>
 void Table<T>::RemoveColumns(int n, int from)
@@ -288,7 +292,7 @@ void Table<T>::FillArea(int a,int b, int m, int n, T value)
         cout <<" Out of bounds";
         return;
     }
-    for(int i = a; i< a+m; i++)
+    for(int i = a; i <= a+m; i++)
     {
         for(int j = b; j < b+n; j++)
         {
@@ -301,7 +305,7 @@ void Table<T>::FillArea(int a,int b, int m, int n, T value)
 template<typename T>
 void Table<T>::ClearTable()
 {
-    this->FillArea(0,0,tr.size(),tr[0].size(),0);
+    this->FillArea(0,0,tr.size()-1,tr[0].size(),0); 
 }
 
 
@@ -339,7 +343,7 @@ void Table<T>::WriteToFile(string file, string format, string delimeter,bool num
             {
                 for(int j = 0; j < tr[i].size(); j++)
                 {
-                    out << setw(3) << tr[i][j]<< delimeter;
+                    out << tr[i][j]<< delimeter;
                 }
                 out << endl;
             }
