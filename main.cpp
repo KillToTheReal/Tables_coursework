@@ -1,5 +1,6 @@
 #include <iostream>
 #include "table.h"
+#include "unit_test.cpp"
 using namespace std;
 
 int main()
