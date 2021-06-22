@@ -29,7 +29,7 @@ bool unit_test()
     cout<<endl<<"Table after editing: ";
     n.Info();
     cout << endl << "Function of filling an area (0,1,1,4,25)";
-    n.FillArea(0,1,1,4,25);
+    n.FillArea(0,1,2,4,25);
     cout<<endl<<"Table after editing: ";
     n.Info();
     cout << endl << "Function of searching (25). Returns vector of results and prints it. Else returns false" << endl;
